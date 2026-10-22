@@ -1,8 +1,12 @@
 {
   "name": "vibeondemand",
-  "module": "index.ts",
+  "module": "src/index.ts",
   "type": "module",
   "private": true,
+  "scripts": {
+    "start": "bun .",
+    "dev": "bun --watch ."
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
