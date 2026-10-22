@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 
-const prompt = await Bun.file("./prompt.txt").text();
+const prompt = await Bun.file("./static/prompt.txt").text();
 
 export async function requestHandler(request: Request): Promise<Response> {
   const resp = await fetch(
