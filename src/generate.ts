@@ -3,28 +3,31 @@ import OpenAI from "openai";
 const prompt = await Bun.file("./prompt.txt").text();
 
 export async function requestHandler(request: Request): Promise<Response> {
-  const resp = await fetch("https://api.deepseek.com/chat/completions", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      authorization: "Bearer " + Bun.env.DEEPSEEK_KEY,
-    },
-    body: JSON.stringify({
-      model: "deepseek-flash",
-      messages: [
-        { role: "system", content: prompt },
-        { role: "user", content: await requestToRawHttp(request) },
-      ],
-      thinking: { type: "disabled" },
-      stream: false,
-    }),
-  });
+  const resp = await fetch(
+    Bun.env.DEEPSEEK_ENDPOINT ?? "https://api.deepseek.com/chat/completions",
+    {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: "Bearer " + Bun.env.DEEPSEEK_KEY,
+      },
+      body: JSON.stringify({
+        model: Bun.env.DEEPSEEK_MODEL ?? "deepseek-flash",
+        messages: [
+          { role: "system", content: prompt },
+          { role: "user", content: await requestToRawHttp(request) },
+        ],
+        thinking: { type: "disabled" },
+        stream: false,
+      }),
+    }
+  );
+
   const json = (await resp.json()) as {
     choices: { message: { content: string } }[];
   };
 
   const response = rawHttpToResponse(json.choices[0]!.message.content);
-
   return response;
 }
 
