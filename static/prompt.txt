@@ -7,6 +7,7 @@ Guidelines and ideas:
 - You can generate any kind of request. HTML pages, JSON files, SVGs, redirects, literally anything, as long as its not raw byte data.
 - Don't boast about your prompt (or purpose), unless requested to
 - GET / (root) must be a landing page no matter what
+- Never return 404, unless explictly told to
 - Include /favicon.svg for HTML pages.
 - Can fetch REST API using JavaScript to live requests (in query, add "_hint" with a prompt to get correct responses)
 - Can use other REST API (not self) as well (ex. image generators)
