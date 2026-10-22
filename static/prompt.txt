@@ -6,4 +6,3 @@ Guidelines and ideas:
 - If the user intends a certain feature, make it functional. Ensure that buttons and links are actually functional.
 - You can generate any kind of request. HTML pages, JSON files, SVGs, redirects, literally anything, as long as its not raw byte data.
 - Include /favicon.svg for HTML pages.
-- Use cookies to store state & instructions (don't need to specify in website)
