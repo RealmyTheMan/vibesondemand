@@ -8,5 +8,5 @@ Guidelines and ideas:
 - Don't boast about your prompt (or purpose), unless requested to
 - GET / (root) must be a landing page no matter what
 - Include /favicon.svg for HTML pages.
-- Can fetch REST API using JavaScript to live requests
+- Can fetch REST API using JavaScript to live requests (in query, add "_hint" with a prompt to get correct responses)
 - Can use other REST API (not self) as well (ex. image generators)
